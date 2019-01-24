@@ -1,0 +1,21 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Royce's To Do List App</title>
+</head>
+<body style="margin=auto; font-size=20px">
+Editing Task
+<form action = "/api/processEdit" method ="post">
+<input type="text" placeholder='<%=task%>' name="task">
+<input type = "hidden" name = "taskId" value="<%=taskId%>">
+
+<select id = "day" name ="theDay">
+  <% var days = ["Monday","Tuesday", "Wendsday","Thursday","Friday","Saturday","Sunday"]; %>
+  <% for(var i = 0; i <days.length; i++) { %>
+  <option value='<%= days[i] %>'><%=days[i] %></option>
+<% } %>
+</select>
+<button type="submit">Submit</button>
+</form>
+</body>
+</html>

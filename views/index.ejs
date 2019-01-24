@@ -1,0 +1,149 @@
+<html lang="en">
+<head>
+  <style>
+  body{
+     font-size: 25px;
+     font-family: :"Lucida Console", Monaco, monospace;
+     background-image:url("https://previews.123rf.com/images/vkulieva/vkulieva1602/vkulieva160200007/52452427-patr%C3%B3n-sin-fisuras-para-lista-de-tareas-fondo-universales.jpg")
+   }
+  </style>
+  <meta charset="UTF-8">
+  <title>Royce's To Do List App</title>
+</head>
+<body style="margin=auto; font-size=20px">
+  <script src="script.js"></script>
+Hello errybody welcome to our HW planner
+<form action="/api/create" method="POST">
+  <input type="text" placeholder="Tasks Go Here" name="task">
+  <select id = "day" name ="theDay">
+    <% var days = ["Monday","Tuesday", "Wendsday","Thursday","Friday","Saturday","Sunday"]; %>
+    <% for(var i = 0; i <days.length; i++) { %>
+    <option value='<%= days[i] %>'><%=days[i] %></option>
+  <% } %>
+</select>
+  <button type="submit">Submit</button>
+
+</form>
+
+
+<ul class= "monday">
+  Monday's Tasks
+  <% for(var i = 0;i<mondayTasks.length; i++) {%>
+    <li class= "mondayEvents">
+      <span><%= mondayTasks[i].task%></span>
+      <form method="post" action="/api/delete">
+        <input type="hidden" name="id" value="<%= mondayTasks[i].id  %>">
+      <input type="submit" value="Finished">
+    </form>
+    <form method = "post" action = "api/edit">
+      <input type="hidden" name="id" value="<%= mondayTasks[i].id  %>">
+      <input type="submit" value="Edit">
+      </form>
+    </li>
+  <% } %>
+</ul>
+
+<ul class= "tuesday">
+  Tuesday's Tasks
+  <% for(var i = 0;i<tuesdayTasks.length; i++) {%>
+    <li class= "tuesdayEvents">
+      <span><%= tuesdayTasks[i].task%></span>
+      <form method="post" action="/api/delete">
+        <input type="hidden" name="id" value="<%= tuesdayTasks[i].id  %>">
+      <input type="submit" value="Finished">
+    </form>
+      <form method = "post" action = "api/edit">
+        <input type="hidden" name="id" value="<%= tuesdayTasks[i].id  %>">
+        <input type="submit" value="Edit">
+    </form>
+
+    </li>
+  <% } %>
+</ul>
+<ul class= "wendsday">
+  Wednesday's Tasks
+  <% for(var i = 0;i<wendsdayTasks.length; i++) {%>
+    <li class= "wendsdayEvents">
+      <span><%=wendsdayTasks[i].task%></span>
+      <form method="post" action="/api/delete">
+        <input type="hidden" name="id" value="<%= wendsdayTasks[i].id  %>">
+      <input type="submit" value="Finished">
+    </form>
+    <form method = "post" action = "api/edit">
+      <input type="hidden" name="id" value="<%= wendsdayTasks[i].id  %>">
+      <input type="submit" value="Edit">
+      </form>
+
+    </li>
+  <% } %>
+</ul>
+<ul class= "thursday">
+  Thursday's Tasks
+  <% for(var i = 0;i<thursdayTasks.length; i++) {%>
+    <li class= "thursdayEvents">
+      <span><%= thursdayTasks[i].task%></span>
+      <form method="post" action="/api/delete">
+        <input type="hidden" name="id" value="<%= thursdayTasks[i].id  %>">
+      <input type="submit" value="Finished">
+    </form>
+    <form method = "post" action = "api/edit">
+      <input type="hidden" name="id" value="<%= thursdayTasks[i].id  %>">
+      <input type="submit" value="Edit">
+      </form>
+
+    </li>
+  <% } %>
+</ul>
+<ul class= "friday">
+  Friday's Tasks
+  <% for(var i = 0;i<fridayTasks.length; i++) {%>
+    <li class= "fridayEvents">
+      <span><%=fridayTasks[i].task%></span>
+      <form method="post" action="/api/delete">
+        <input type="hidden" name="id" value="<%= fridayTasks[i].id  %>">
+      <input type="submit" value="Finished">
+    </form>
+    <form method = "post" action = "api/edit">
+      <input type="hidden" name="id" value="<%= fridayTasks[i].id  %>">
+      <input type="submit" value="Edit">
+      </form>
+
+    </li>
+  <% } %>
+</ul>
+<ul class= "saturday">
+  Saturday's Tasks
+  <% for(var i = 0;i<saturdayTasks.length; i++) {%>
+    <li class= "saturdayEvents">
+      <span><%=saturdayTasks[i].task%></span>
+      <form method="post" action="/api/delete">
+        <input type="hidden" name="id" value="<%= saturdayTasks[i].id  %>">
+      <input type="submit" value="Finished">
+    </form>
+    <form method = "post" action = "api/edit">
+      <input type="hidden" name="id" value="<%= saturdayTasks[i].id  %>">
+      <input type="submit" value="Edit">
+      </form>
+    </li>
+  <% } %>
+</ul>
+<ul class= "sunday">
+  Sunday's Tasks
+  <% for(var i = 0;i<sundayTasks.length; i++) {%>
+    <li class= "sundayEvents">
+      <span><%= sundayTasks[i].task%></span>
+      <form method="post" action="/api/delete">
+        <input type="hidden" name="id" value="<%= sundayTasks[i].id  %>">
+      <input type="submit" value="Finished">
+    </form>
+    <form method = "post" action = "api/edit">
+      <input type="hidden" name="id" value="<%= sundayTasks[i].id  %>">
+      <input type="submit" value="Edit">
+      </form>
+    </li>
+  <% } %>
+</ul>
+
+
+</body>
+</html>
